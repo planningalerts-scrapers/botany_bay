@@ -3,9 +3,9 @@ require 'mechanize'
 
 agent = Mechanize.new
 
-base_url = "http://210.8.51.75/"
+base_url = "http://210.8.51.75"
 comment_url = "mailto:council@botanybay.nsw.gov.au"
-page = agent.get("#{base_url}eservice/daEnquiry/currentlyAdvertised.do?function_id=521&nodeNum=2812")
+page = agent.get("#{base_url}/eservice/daEnquiry/currentlyAdvertised.do?function_id=521&nodeNum=2812")
 
 page.search(".non_table_headers").each do |header|
   field_values = header.next.search(".inputField").map { |i| i.inner_text }
